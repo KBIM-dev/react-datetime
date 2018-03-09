@@ -98,7 +98,7 @@ var DateTimePickerDays = onClickOutside( createClass({
 			if ( !isDisabled )
 				dayProps.onClick = this.updateSelectedDate;
 
-			days.push( renderer( dayProps, currentDate, selected ) );
+			days.push( renderer( dayProps, currentDate, selected, currentMonth ) );
 
 			if ( days.length === 7 ) {
 				weeks.push( React.createElement('tr', { key: prevMonth.format( 'M_D' )}, days ) );
