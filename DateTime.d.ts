@@ -130,7 +130,7 @@ declare namespace ReactDatetimeClass {
          the selectedDate, the current date and the default calculated props for the cell,
          and must return a React component. See appearance customization
          */
-        renderDay?: (props: any, currentDate: any, selectedDate: any) => JSX.Element;
+        renderDay?: (props: any, currentDate: any, selectedDate: any, currentMonth: any) => JSX.Element;
         /*
          Customize the way that the months are shown in the month picker.
          The accepted function has the selectedDate, the current date and the default calculated
