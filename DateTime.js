@@ -260,7 +260,7 @@ var Datetime = createClass({
 	subtractTime: function( amount, type, toSelected ) {
 		var me = this;
 		return function() {
-			if (me.props.onNavigateBack( amount, type, me.state.date )) {
+			if (me.props.onNavigateBack( amount, type, me.state.viewDate )) {
         me.updateTime( 'subtract', amount, type, toSelected );
 			}
 		};
@@ -269,7 +269,7 @@ var Datetime = createClass({
 	addTime: function( amount, type, toSelected ) {
 		var me = this;
 		return function() {
-      if (me.props.onNavigateForward( amount, type, me.state.date )) {
+      if (me.props.onNavigateForward( amount, type, me.state.viewDate )) {
         me.updateTime('add', amount, type, toSelected);
       }
 		};
