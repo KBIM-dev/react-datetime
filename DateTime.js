@@ -319,12 +319,10 @@ var Datetime = createClass({
 			;
 
 		if (target.className.indexOf('rdtDay') !== -1) {
-      if (this.props.changeOnClickOverMonth) {
-        if (target.className.indexOf('rdtNew') !== -1)
-          modifier = 1;
-        else if (target.className.indexOf('rdtOld') !== -1)
-          modifier = -1;
-    	}
+			if (target.className.indexOf('rdtNew') !== -1)
+				modifier = 1;
+			else if (target.className.indexOf('rdtOld') !== -1)
+				modifier = -1;
 			date = viewDate.clone()
 				.month( viewDate.month() + modifier )
 				.date( parseInt( target.getAttribute('data-value'), 10 ) );
@@ -352,7 +350,7 @@ var Datetime = createClass({
 
 			this.setState({
 				selectedDate: date,
-				viewDate: date.clone().startOf('month'),
+				viewDate: !this.props.changeOnClickOverMonth ? date.clone().startOf('month') : date.clone().add(modifier, 'month').startOf('month'),
 				inputValue: date.format( this.state.inputFormat ),
 				open: open
 			});
