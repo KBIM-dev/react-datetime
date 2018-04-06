@@ -350,7 +350,7 @@ var Datetime = createClass({
 
 			this.setState({
 				selectedDate: date,
-				viewDate: !this.props.changeOnClickOverMonth ? date.clone().startOf('month') : date.clone().add(modifier, 'month').startOf('month'),
+        viewDate: this.props.changeOnClickOverMonth ? date.clone().startOf('month') : date.clone().add(-modifier, 'month').startOf('month'),
 				inputValue: date.format( this.state.inputFormat ),
 				open: open
 			});
