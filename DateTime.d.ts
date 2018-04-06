@@ -68,6 +68,10 @@ declare namespace ReactDatetimeClass {
          */
         open?: boolean;
         /*
+         TODO
+         */
+        changeOnClickOverMonth?: boolean;
+        /*
          Manually set the locale for the react-datetime instance.
          Moment.js locale needs to be loaded to be used, see i18n docs.
          */
@@ -174,6 +178,7 @@ declare namespace ReactDatetimeClass {
         selectedDate: Moment;
         inputValue: string;
         open: boolean;
+        changeOnClickOverMonth: boolean;
     }
 }
 

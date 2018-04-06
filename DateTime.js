@@ -34,6 +34,7 @@ var Datetime = createClass({
 		// dateFormat: TYPES.string | TYPES.bool,
 		// timeFormat: TYPES.string | TYPES.bool,
 		inputProps: TYPES.object,
+		changeOnClickOverMonth: TYPES.bool,
 		timeConstraints: TYPES.object,
 		viewMode: TYPES.oneOf([viewModes.YEARS, viewModes.MONTHS, viewModes.DAYS, viewModes.TIME]),
 		isValidDate: TYPES.func,
@@ -318,11 +319,12 @@ var Datetime = createClass({
 			;
 
 		if (target.className.indexOf('rdtDay') !== -1) {
-			if (target.className.indexOf('rdtNew') !== -1)
-				modifier = 1;
-			else if (target.className.indexOf('rdtOld') !== -1)
-				modifier = -1;
-
+      if (this.props.changeOnClickOverMonth) {
+        if (target.className.indexOf('rdtNew') !== -1)
+          modifier = 1;
+        else if (target.className.indexOf('rdtOld') !== -1)
+          modifier = -1;
+    	}
 			date = viewDate.clone()
 				.month( viewDate.month() + modifier )
 				.date( parseInt( target.getAttribute('data-value'), 10 ) );
@@ -475,6 +477,7 @@ Datetime.defaultProps = {
 	strictParsing: true,
 	closeOnSelect: false,
 	closeOnTab: true,
+  changeOnClickOverMonth: true,
 	utc: false
 };
 
