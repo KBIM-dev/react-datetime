@@ -101,7 +101,7 @@ var DateTimePickerDays = onClickOutside( createClass({
 			days.push( renderer( dayProps, currentDate, selected, currentMonth ) );
 
 			if ( days.length === 7 ) {
-				weeks.push( React.createElement('tr', { key: prevMonth.format( 'M_D' )}, days ) );
+				weeks.push( React.createElement('tr', { key: prevMonth.format( 'M_W' )}, days ) );
 				days = [];
 			}
 
